@@ -15,7 +15,13 @@ function MyVerticallyCenteredModal({ show, onHide, ward }) {
           <p className="m-0" style={{ fontWeight: "600" }}>
             Capacity:
           </p>
-          <p className="m-0">{ward.capacity} years</p>
+          <p className="m-0">{ward.capacity}</p>
+        </div>
+        <div className="d-flex justify-content-start gap-2">
+          <p className="m-0" style={{ fontWeight: "600" }}>
+            Patients Recovered:
+          </p>
+          <p className="m-0">{ward.patientsRecovered}</p>
         </div>
         <div className="d-flex justify-content-start gap-2">
           <p className="m-0" style={{ fontWeight: "600" }}>

@@ -4,6 +4,7 @@ import { Toaster } from "react-hot-toast";
 import Navbar from "./Templates/Navbar";
 import Patients from "./Pages/Patients/Patients";
 import Wards from "./Pages/Wards/Wards";
+import HospitalView from "./Pages/HospitalView/HospitalView";
 
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -19,8 +20,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Patients />} />
           <Route path="/wards" element={<Wards />} />
-          {/* <Route path="/school-view" element={<SchoolView />} />
-          <Route path="/class-view" element={<ClassView />} /> */}
+          <Route path="/hospital-view" element={<HospitalView />} />
         </Routes>
         <Toaster position="top-center" />
       </div>

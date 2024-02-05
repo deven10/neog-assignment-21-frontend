@@ -13,6 +13,7 @@ function MyVerticallyCenteredModal({ show, onHide, patient }) {
     medicalHistory: patient?.medicalHistory,
     contact: patient?.contact,
     assignedWard: patient?.assignedWard,
+    stayDuration: patient?.stayDuration,
   });
 
   const handleChange = (e) => {
@@ -23,10 +24,24 @@ function MyVerticallyCenteredModal({ show, onHide, patient }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const { name, age, gender, medicalHistory, contact, assignedWard } =
-      newPatient;
+    const {
+      name,
+      age,
+      gender,
+      medicalHistory,
+      contact,
+      assignedWard,
+      stayDuration,
+    } = newPatient;
+
     const bool =
-      name && age && gender && medicalHistory && contact && assignedWard;
+      name &&
+      age &&
+      gender &&
+      medicalHistory &&
+      contact &&
+      assignedWard &&
+      stayDuration;
 
     if (bool) {
       dispatch(updatePatient({ id: patient._id, newPatient }));
@@ -83,6 +98,18 @@ function MyVerticallyCenteredModal({ show, onHide, patient }) {
               name="medicalHistory"
               placeholder="Medical History"
               value={newPatient.medicalHistory}
+              onChange={(e) => handleChange(e)}
+              required
+            />
+          </div>
+          <div className="d-flex flex-column w-100">
+            <label htmlFor="stayDuration">Stay Duration: </label>
+            <input
+              type="number"
+              id="stayDuration"
+              name="stayDuration"
+              placeholder="Stay Duration"
+              value={newPatient.stayDuration}
               onChange={(e) => handleChange(e)}
               required
             />

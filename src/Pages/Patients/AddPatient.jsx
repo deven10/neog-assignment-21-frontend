@@ -15,6 +15,7 @@ function MyVerticallyCenteredModal({ show, onHide }) {
     medicalHistory: "",
     contact: "",
     assignedWard: "",
+    stayDuration: "",
   });
 
   const handleChange = (e) => {
@@ -24,10 +25,25 @@ function MyVerticallyCenteredModal({ show, onHide }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { name, age, gender, medicalHistory, contact, assignedWard } =
-      patient;
+    const {
+      name,
+      age,
+      gender,
+      medicalHistory,
+      contact,
+      assignedWard,
+      stayDuration,
+    } = patient;
+
     const bool =
-      name && age && gender && medicalHistory && contact && assignedWard;
+      name &&
+      age &&
+      gender &&
+      medicalHistory &&
+      contact &&
+      assignedWard &&
+      stayDuration;
+
     if (bool) {
       dispatch(addPatient(patient));
       onHide();
@@ -38,6 +54,7 @@ function MyVerticallyCenteredModal({ show, onHide }) {
         medicalHistory: "",
         contact: "",
         assignedWard: "",
+        stayDuration: "",
       });
     } else {
       toast.error("Fill all the fields!");
@@ -95,6 +112,18 @@ function MyVerticallyCenteredModal({ show, onHide }) {
               name="medicalHistory"
               placeholder="Medical History"
               value={patient.medicalHistory}
+              onChange={(e) => handleChange(e)}
+              required
+            />
+          </div>
+          <div className="d-flex flex-column w-100">
+            <label htmlFor="stayDuration">Stay Duration: </label>
+            <input
+              type="number"
+              id="stayDuration"
+              name="stayDuration"
+              placeholder="Stay Duration"
+              value={patient.stayDuration}
               onChange={(e) => handleChange(e)}
               required
             />

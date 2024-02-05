@@ -11,6 +11,7 @@ function MyVerticallyCenteredModal({ show, onHide }) {
     wardNumber: "",
     capacity: "",
     specialization: "",
+    patientsRecovered: "",
   });
 
   const handleChange = (e) => {
@@ -29,6 +30,7 @@ function MyVerticallyCenteredModal({ show, onHide }) {
         wardNumber: "",
         capacity: "",
         specialization: "",
+        patientsRecovered: "",
       });
     } else {
       toast.error("Fill all the fields!");
@@ -62,6 +64,18 @@ function MyVerticallyCenteredModal({ show, onHide }) {
               name="capacity"
               placeholder="Capacity"
               value={ward.capacity}
+              onChange={(e) => handleChange(e)}
+              required
+            />
+          </div>
+          <div className="d-flex flex-column w-100">
+            <label htmlFor="patientsRecovered">Patients Recovered: </label>
+            <input
+              type="number"
+              id="patientsRecovered"
+              name="patientsRecovered"
+              placeholder="Patients Recovered"
+              value={ward.patientsRecovered}
               onChange={(e) => handleChange(e)}
               required
             />

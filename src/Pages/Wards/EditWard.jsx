@@ -10,6 +10,7 @@ function MyVerticallyCenteredModal({ show, onHide, ward }) {
     wardNumber: ward?.wardNumber,
     capacity: ward?.capacity,
     specialization: ward?.specialization,
+    patientsRecovered: ward?.patientsRecovered,
   });
 
   const handleChange = (e) => {
@@ -20,8 +21,8 @@ function MyVerticallyCenteredModal({ show, onHide, ward }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const { wardNumber, capacity, specialization } = newWard;
-    const bool = wardNumber && capacity && specialization;
+    const { wardNumber, capacity, specialization, patientsRecovered } = newWard;
+    const bool = wardNumber && capacity && specialization && patientsRecovered;
 
     if (bool) {
       dispatch(updateWard({ id: ward._id, newWard }));
@@ -58,6 +59,18 @@ function MyVerticallyCenteredModal({ show, onHide, ward }) {
               name="capacity"
               placeholder="Capacity"
               value={newWard.capacity}
+              onChange={(e) => handleChange(e)}
+              required
+            />
+          </div>
+          <div className="d-flex flex-column w-100">
+            <label htmlFor="patientsRecovered">Patients Recovered: </label>
+            <input
+              type="number"
+              id="patientsRecovered"
+              name="patientsRecovered"
+              placeholder="Patients Recovered"
+              value={newWard.patientsRecovered}
               onChange={(e) => handleChange(e)}
               required
             />
