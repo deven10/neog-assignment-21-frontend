@@ -8,7 +8,7 @@ import {
 } from "react-table";
 
 import SkeletonTable from "../../Templates/SkeletonTable";
-import { fetchWards } from "../../Features/Wardslice";
+import { fetchWards } from "../../Features/wardSlice";
 import AddWard from "./AddWard";
 import ReactTable from "../../Templates/Table";
 import WardDetails from "./WardDetails";
